@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700&display=swap");
+
+:root {
+  --primary-color: #66caae;
+  --seccondary-color: #2946f5;
+  --gris-claro: #eaeaea;
+  --gris-oscuro: #5e5e5e;
+  --font-xxl: 35px;
+  --font-xl: 29px;
+  --font-md: 23px;
+  --font-sm: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.nombre-producto {
+  font-size: var(--font-xxl);
+  color: var(--seccondary-color);
+  margin-top: 16px;
+}
+.precio-producto {
+  font-size: var(--font-xl);
+  color: var(--seccondary-color);
+}
+body {
+  background-color: rgba(194, 194, 42, 0.579);
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+}
+
+.nav {
+  height: 80px;
+  width: 100%;
+  background-color: white;
+}
+.main-container {
+  max-width: 550px;
+  min-width: 330px;
+  background-color: whitesmoke;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 16px;
+  margin: 16px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0px #00000033;
+}
+
+.slider {
+  height: 200px;
+  width: 100%;
+  background-color: darkgrey;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.producto-info {
+  background-color: blue;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+.form select {
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid gainsboro;
+  color: var(--gris-oscuro);
+  padding-left: 16px;
+}
+.form label {
+  margin-top: 16px;
+  font-size: var(--font-sm);
+  font-weight: 400;
+  color: var(--seccondary-color);
+}
+
+.btn {
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  margin: 16px 0;
+  cursor: pointer;
+}
+
+.observaciones {
+  border: none;
+  border-radius: 20px;
+  padding: 16px;
+  border: 2px solid var(--gris-claro);
+}
+.btn-secondary {
+  background-color: var(--seccondary-color);
+  color: white;
+}
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}

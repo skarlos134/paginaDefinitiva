@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <title>Sellos</title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <nav class="nav"></nav>
+    <div class="main-container">
+      <section class="slider">
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <img src="./Rectangle 35.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./Mask group.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./Rectangle 35.png" alt="" />
+            </div>
+            ...
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+          <!-- If we need scrollbar -->
+          <div class="swiper-scrollbar"></div>
+        </div>
+      </section>
+
+      <section class="product-info">
+        <h1 class="nombre-producto">Sello</h1>
+        <h2 class="precio-producto">$35.000</h2>
+        <form class="form" action="">
+          <label for="tamano">Tamaño</label>
+          <select name="tamano" id="tamano">
+            <option value="1">4x4</option>
+            <option value="2">5x5</option>
+            <option value="3">6x6</option>
+            <option value="4">7x7</option>
+            <option value="5">7x11</option>
+          </select>
+
+          <label for="almohadilla">Almohadilla de tinta</label>
+          <select name="almohadilla" id="almohadilla">
+            <option value="1">7x11cm</option>
+            <option value="2">9x16cm</option>
+            <option value="3">Sin almohadilla</option>
+          </select>
+
+          <button class="btn btn-secondary">
+            Subir archivo <i class="fa-solid fa-upload"></i>
+          </button>
+          <textarea
+            class="observaciones"
+            name="observaciones"
+            id="observaciones"
+            cols="30"
+            placeholder="Escriba aquí sus observaciones"
+            rows="5 "
+          ></textarea>
+          <button class="btn btn-primary">
+            Agregar al Carrito <i class="fa-solid fa-cart-shopping"></i>
+          </button>
+        </form>
+      </section>
+    </div>
+
+    <script src="./swipper.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  </body>
+</html>
