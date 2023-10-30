@@ -19,7 +19,11 @@
   <body>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-    <nav class="nav"></nav>
+    <nav class="nav">
+      <i class="fa-solid fa-bars"></i>
+      <img src="./logo-wow.png" alt="logo-wow" />
+      <i class="fa-solid fa-cart-shopping"></i>
+    </nav>
     <div class="main-container">
       <section class="slider">
         <div class="swiper">
@@ -53,14 +57,29 @@
         <h1 class="nombre-producto">Sello</h1>
         <h2 class="precio-producto">$35.000</h2>
         <form class="form" action="">
-          <label for="tamano">Tamaño</label>
+          <label for="tamano">Tamaños</label>
           <select name="tamano" id="tamano">
-            <option value="1">4x4</option>
-            <option value="2">5x5</option>
-            <option value="3">6x6</option>
-            <option value="4">7x7</option>
-            <option value="5">7x11</option>
+            <option value="1">3x3</option>
+            <option value="2" selected>4x4</option>
+            <option value="3">5x5</option>
+            <option value="4">6x6</option>
+            <option value="5">7x7</option>
+            <option value="6">7x11</option>
+            <option value="7">Personalizado</option>
           </select>
+          <div class="personalizado">
+            <label for="ancho"
+              >Ancho <i class="fa-solid fa-arrows-left-right"></i
+            ></label>
+            <input type="number" id="ancho" />
+            <label for="alto"
+              >Alto <i class="fa-solid fa-arrows-up-down"></i
+            ></label>
+            <input type="number" id="alto" />
+            <button class="btn btn-secondary">
+              Calcular precio <i class="fa-solid fa-calculator"></i>
+            </button>
+          </div>
 
           <label for="almohadilla">Almohadilla de tinta</label>
           <select name="almohadilla" id="almohadilla">
@@ -87,6 +106,7 @@
       </section>
     </div>
 
+    <script src="./scripts.js"></script>
     <script src="./swipper.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   </body>

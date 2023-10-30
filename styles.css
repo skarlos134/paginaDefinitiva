@@ -34,8 +34,13 @@ body {
 
 .nav {
   height: 80px;
-  width: 100%;
-  background-color: white;
+  min-width: 330px;
+  font-size: 24px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
 }
 .main-container {
   max-width: 550px;
@@ -65,7 +70,14 @@ body {
   flex-direction: column;
   font-size: 20px;
 }
-.form select {
+.personalizado {
+  display: flex;
+  display: none;
+  flex-direction: column;
+  /* display: none; */
+}
+.form select,
+input {
   height: 40px;
   border-radius: 20px;
   border: 1px solid gainsboro;
