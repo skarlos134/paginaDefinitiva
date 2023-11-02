@@ -14,7 +14,7 @@
     />
     <link rel="stylesheet" href="./styles.css" />
 
-    <title>Sellos</title>
+    <title>Tarjetass</title>
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
@@ -54,50 +54,58 @@
       </section>
 
       <section class="product-info">
-        <h1 class="nombre-producto">Sello</h1>
-        <h2 class="precio-producto">$35.000</h2>
+        <h1 class="nombre-producto">Tarjetas</h1>
+
         <form class="form" action="">
           <label for="tamano">Tamaños</label>
           <select name="tamano" id="tamano">
-            <option value="1">3x3</option>
-            <option value="2" selected>4x4</option>
-            <option value="3">5x5</option>
-            <option value="4">6x6</option>
-            <option value="5">7x7</option>
-            <option value="6">7x11</option>
-            <option value="7">Personalizado</option>
-          </select>
-          <div class="personalizado">
-            <label for="ancho"
-              >Ancho <i class="fa-solid fa-arrows-left-right"></i
-            ></label>
-            <input type="number" id="ancho" />
-            <label for="alto"
-              >Alto <i class="fa-solid fa-arrows-up-down"></i
-            ></label>
-            <input type="number" id="alto" />
-            <!-- <button class="btn btn-secondary">
-              Calcular precio <i class="fa-solid fa-calculator"></i>
-            </button> -->
-          </div>
-
-          <label for="almohadilla">Almohadilla de tinta</label>
-          <select name="almohadilla" id="almohadilla">
-            <option value="1">7x11cm con tinta negra</option>
-            <option value="2">7x11cm sin tinta</option>
-            <option value="3">9x16cm con tinta negra</option>
-            <option value="4">Sin almohadilla</option>
+            <option value="1">10x15</option>
+            <option value="2">10x11.5</option>
+            <option value="3">13x8</option>
+            <option value="4">8.5x10</option>
+            <option value="5" selected>8x5.5</option>
           </select>
 
-          <label for="frasco-tinta">Frasco de tinta</label>
-          <select name="frasco-tinta" id="frasco-tinta">
-            <option value="1">sin tarro de tinta</option>
-            <option value="2">negra</option>
-            <option value="3">roja</option>
-            <option value="4">azul</option>
-            <option value="5">morada</option>
-            <option value="6">verde</option>
+          <label for="impresion">impresion</label>
+          <select name="impresion" id="impresion">
+            <option value="1" selected>Una Cara</option>
+            <option value="2">Dos Caras</option>
           </select>
+
+          <!-- <label for="acabado">Acabado</label>
+          <select name="acabado" id="acabado">
+            <option value="1" selected>Brillante</option>
+            <option value="2">Mate</option>
+          </select> -->
+
+          <!-- <label for="esquinas">Esquinas</label>
+          <select name="esquinas" id="esquinas">
+            <option value="1" selected>Rectas</option>
+            <option value="2">Redondeadas</option>
+          </select> -->
+
+          <table class="tabla">
+            <thead>
+              <tr>
+                <th>Cantidad</th>
+                <th>Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>100</td>
+                <td>$35.000</td>
+              </tr>
+              <tr>
+                <td>500</td>
+                <td>$70.000</td>
+              </tr>
+              <tr>
+                <td>100</td>
+                <td>$85.000</td>
+              </tr>
+            </tbody>
+          </table>
 
           <!-- <div class="color-selector" id="frasco-tinta">
             <button class="btn-redondo negro"></button>
