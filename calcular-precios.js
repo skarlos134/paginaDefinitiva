@@ -1,6 +1,6 @@
 // let cantidad = 300;
-let ancho = 5;
-let alto = 5;
+let ancho = 10;
+let alto = 10;
 const porcentaje = 6.25;
 const cantidades = [50, 100, 300, 500, 1000];
 
@@ -24,23 +24,41 @@ function calcularPrecio() {
 
     if (resultado < 15000) {
       precioFinal = 15000;
-    } else if (resultado > 15000) {
+    }
+    if (resultado >= 15000) {
       precioFinal = resultado; //sin descuento
-    } else if (resultado > 100000) {
+    }
+    if (resultado > 100000) {
       precioFinal = resultado * 0.95; //descuendo del 5%
-    } else if (resultado > 200000) {
+    }
+    if (resultado > 200000) {
       precioFinal = resultado * 0.92; //descuendo del 8%
-    } else if (resultado > 300000) {
+    }
+    if (resultado > 300000) {
       precioFinal = resultado * 0.9; //descuendo del 10%
-    } else if (resultado > 400000) {
+    }
+    if (resultado > 400000) {
       precioFinal = resultado * 0.88; //descuendo del 12%
-    } else if (resultado > 500000) {
+    }
+    if (resultado > 500000) {
       precioFinal = resultado * 0.85; //descuendo del 15%
-    } else if (resultado > 1000000) {
+    }
+    if (resultado > 1000000) {
       precioFinal = resultado * 0.8; //descuendo del 20%
     }
     resultados.push(precioFinal);
   });
 
   console.log(resultados);
+}
+
+function insertarEnTabla() {
+  const tablaHtml = document.querySelector(".tabla");
+  cantidades.forEach((cantidad) => {
+    let crearFila = tablaHtml.insertRow();
+    let insertarCelda1 = crearFila.insertCell();
+    let insertarCelda2 = crearFila.insertCell();
+    insertarCelda1.textContent = cantidad;
+    insertarCelda2.textContent = calcularPrecio()[cantidad];
+  });
 }
