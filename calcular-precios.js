@@ -1,8 +1,10 @@
 // let cantidad = 300;
-let ancho = 5;
-let alto = 5;
+let ancho = 7;
+let alto = 7;
 const porcentaje = 6.25;
 const cantidades = [50, 100, 300, 500, 1000];
+
+const tamanosStandar = document.querySelector(".tamano");
 
 // // descuentos 100+ 5%,
 // 250+ 8%,
@@ -17,6 +19,7 @@ function calcularAreaPrecio() {
 
 function calcularPrecio(cantidad) {
   const resultado = cantidad * (ancho * alto * porcentaje);
+  const resultadoRedondeado = Math.round(resultado / 500) * 500;
 
   if (resultado < 15000) {
     return 15000;
@@ -40,9 +43,17 @@ function calcularYInsertarEnTabla() {
   cantidades.forEach((cantidad) => {
     let crearFila = tablaHtml.insertRow();
     let insertarCelda1 = crearFila.insertCell();
+    let insertarCelda3 = crearFila.insertCell();
     let insertarCelda2 = crearFila.insertCell();
     insertarCelda1.textContent = cantidad;
-    insertarCelda2.textContent = calcularPrecio(cantidad);
+    insertarCelda2.textContent =
+      "$ " +
+      (Math.round(calcularPrecio(cantidad) / 500) * 500).toLocaleString();
+    insertarCelda3.textContent =
+      "$ " +
+      Math.round(
+        (Math.round(calcularPrecio(cantidad) / 500) * 500) / cantidad
+      ).toLocaleString();
   });
 }
 
