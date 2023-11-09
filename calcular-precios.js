@@ -1,6 +1,39 @@
 // let cantidad = 300;
-let ancho = 7;
-let alto = 7;
+// let ancho = 7.5;
+// let alto = 7.5;
+
+let ancho;
+let alto;
+
+document.querySelector("#tamano").addEventListener("change", (event) => {
+  let opciones = document.querySelector("#tamano").value;
+
+  switch (opciones) {
+    case "1":
+      ancho = 3;
+      alto = 3;
+      break;
+    case "2":
+      ancho = 4;
+      alto = 4;
+      break;
+    case "3":
+      ancho = 5;
+      alto = 5;
+      break;
+    case "4":
+      ancho = 6;
+      alto = 6;
+      break;
+    case "5":
+      ancho = document.querySelector("#ancho").value;
+      alto = document.querySelector("#alto").value;
+      break;
+  }
+  // tbody.innerHTML = "";
+  calcularYInsertarEnTabla();
+});
+
 const porcentaje = 6.25;
 const cantidades = [50, 100, 300, 500, 1000];
 
@@ -19,7 +52,6 @@ function calcularAreaPrecio() {
 
 function calcularPrecio(cantidad) {
   const resultado = cantidad * (ancho * alto * porcentaje);
-  const resultadoRedondeado = Math.round(resultado / 500) * 500;
 
   if (resultado < 15000) {
     return 15000;
