@@ -1,92 +1,75 @@
-// let cantidad = 300;
-// let ancho = 7.5;
-// let alto = 7.5;
+let ancho = 4;
+let alto = 4;
+let comision = 6.25;
+let cantidades = [50, 100, 300, 500, 1000];
 
-let ancho;
-let alto;
-
-document.querySelector("#tamano").addEventListener("change", (event) => {
-  let opciones = document.querySelector("#tamano").value;
-
-  switch (opciones) {
-    case "1":
-      ancho = 3;
-      alto = 3;
-      break;
-    case "2":
-      ancho = 4;
-      alto = 4;
-      break;
-    case "3":
-      ancho = 5;
-      alto = 5;
-      break;
-    case "4":
-      ancho = 6;
-      alto = 6;
-      break;
-    case "5":
-      ancho = document.querySelector("#ancho").value;
-      alto = document.querySelector("#alto").value;
-      break;
-  }
-  // tbody.innerHTML = "";
-  calcularYInsertarEnTabla();
-});
-
-const porcentaje = 6.25;
-const cantidades = [50, 100, 300, 500, 1000];
-
-const tamanosStandar = document.querySelector(".tamano");
-
-// // descuentos 100+ 5%,
-// 250+ 8%,
-// 350 + 10%,
-// 500+ 15%,
-// 750+ 20%
-
-function calcularAreaPrecio() {
-  const valor = ancho * alto * porcentaje;
-  return valor;
+function calcularArea() {
+  return ancho * alto;
 }
 
-function calcularPrecio(cantidad) {
-  const resultado = cantidad * (ancho * alto * porcentaje);
-
-  if (resultado < 15000) {
-    return 15000;
-  } else if (resultado <= 100000) {
-    return resultado; // Sin descuento
-  } else if (resultado <= 200000) {
-    return resultado * 0.95; // Descuento del 5%
-  } else if (resultado <= 300000) {
-    return resultado * 0.92; // Descuento del 8%
-  } else if (resultado <= 400000) {
-    return resultado * 0.9; // Descuento del 10%
-  } else if (resultado <= 500000) {
-    return resultado * 0.88; // Descuento del 12%
-  } else {
-    return resultado * 0.85; // Descuento del 15%
-  }
-}
-
-function calcularYInsertarEnTabla() {
-  const tablaHtml = document.querySelector(".tabla");
+function calcularPrecio() {
+  let preciosCantidad = [];
   cantidades.forEach((cantidad) => {
-    let crearFila = tablaHtml.insertRow();
-    let insertarCelda1 = crearFila.insertCell();
-    let insertarCelda3 = crearFila.insertCell();
-    let insertarCelda2 = crearFila.insertCell();
-    insertarCelda1.textContent = cantidad;
-    insertarCelda2.textContent =
-      "$ " +
-      (Math.round(calcularPrecio(cantidad) / 500) * 500).toLocaleString();
-    insertarCelda3.textContent =
-      "$ " +
-      Math.round(
-        (Math.round(calcularPrecio(cantidad) / 500) * 500) / cantidad
-      ).toLocaleString();
+    preciosCantidad.push(calcularArea() * comision * cantidad);
+  });
+  console.log(preciosCantidad);
+  return preciosCantidad;
+}
+
+function redondear(valor) {
+  return Math.round(valor / 500) * 500;
+}
+
+function calcularDesceuto(arreglo) {
+  let precioConDescuento = [];
+  arreglo.forEach((precio) => {
+    if (precio <= 15000) {
+      precioConDescuento.push(15000);
+    } else if (precio <= 30000) {
+      precioConDescuento.push(precio + 5000);
+    } else if (precio <= 150000) {
+      precioConDescuento.push(precio);
+    } else if (precio <= 250000) {
+      precioConDescuento.push(precio * 0.95);
+    } else if (precio <= 500000) {
+      precioConDescuento.push(precio * 0.9);
+    } else if (precio <= 800000) {
+      precioConDescuento.push(precio * 0.8);
+    } else if (precio <= 1000000) {
+      precioConDescuento.push(precio * 0.75);
+    }
+  });
+  // console.log(precioConDescuento);
+  return precioConDescuento;
+  // insertarPreciosEnTabla();
+}
+
+function calcularPrecioUnitario(cantidad, valorTotal) {
+  return (valorTotal / cantidad).toFixed(1);
+}
+
+function insertarPreciosEnTabla(arreglo) {
+  const tBody = document.querySelector("tbody");
+
+  arreglo.forEach((precio, index) => {
+    const row = tBody.insertRow();
+
+    const cantidad = row.insertCell();
+    cantidad.textContent = cantidades[index];
+
+    const vrUnitario = row.insertCell();
+    vrUnitario.textContent =
+      "$ " + calcularPrecioUnitario(cantidades[index], precio);
+
+    const precios = row.insertCell();
+    precios.textContent = "$ " + redondear(precio).toLocaleString();
   });
 }
 
-calcularYInsertarEnTabla();
+function correr() {
+  let precioFinal = calcularDesceuto(calcularPrecio());
+
+  let tBody = document.querySelector("tbody");
+  tBody.innerText = "";
+  insertarPreciosEnTabla(precioFinal);
+}
